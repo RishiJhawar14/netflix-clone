@@ -68,7 +68,7 @@ export default function NewMovie() {
   const handleSubmit = (e) => {
     e.preventDefault();
     createMovie(movie, dispatch);
-    navigate("/lists");
+    navigate("/movies");
   };
 
   return (

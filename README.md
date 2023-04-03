@@ -1,2 +1,1 @@
-# netflix-clone
-Fullstack Netflix Clone Project using MERN
+# Netflix Clone

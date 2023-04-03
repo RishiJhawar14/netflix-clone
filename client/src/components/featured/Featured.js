@@ -4,7 +4,7 @@ import { InfoOutlined, PlayArrow } from "@mui/icons-material";
 import "./featured.scss";
 import axios from "axios";
 
-export default function Featured({ type, setGenre}) {
+export default function Featured({ type, setGenre }) {
   const [content, setContent] = useState({});
 
   useEffect(() => {
@@ -12,7 +12,8 @@ export default function Featured({ type, setGenre}) {
       try {
         const res = await axios.get(`/movies/random?type=${type}`, {
           headers: {
-            token:"Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+            token:
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
         setContent(res.data[0]);
@@ -29,7 +30,11 @@ export default function Featured({ type, setGenre}) {
       {type && (
         <div className="category">
           <span>{type === "movie" ? "Movies" : "Series"}</span>
-          <select name="genre" id="genre" onChange={(e) => setGenre(e.target.value)}>
+          <select
+            name="genre"
+            id="genre"
+            onChange={(e) => setGenre(e.target.value)}
+          >
             <option>Genre</option>
             <option value="Action">Action</option>
             <option value="Adventure">Adventure</option>
@@ -49,9 +54,9 @@ export default function Featured({ type, setGenre}) {
         </div>
       )}
 
-      <img src={content.imgSm} alt="" className="featuredImg"/>
+      <img rel="preload" src={content.imgSm} alt="" className="featuredImg" />
       <div className="info">
-        <img src={content.imgTitle} alt="" className="featuredImgTitle"/>
+        <img rel="preload" src={content.imgTitle} alt="" className="featuredImgTitle" />
         <span className="desc">{content.desc}</span>
         <div className="buttons">
           <button className="play">

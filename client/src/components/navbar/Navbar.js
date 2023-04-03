@@ -7,7 +7,7 @@ import "./navbar.scss";
 import { AuthContext } from "../../authContext/AuthContext";
 import { logout } from "../../authContext/AuthActions";
 
-const Navbar = () => {
+const Navbar = ({setGenre}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const { dispatch } = useContext(AuthContext);
 
@@ -24,7 +24,7 @@ const Navbar = () => {
             alt=""
           />
           <Link to="/" className="link">
-            <span>Homepage</span>
+            <span onClick={ ()=>{setGenre(null)} }>Homepage</span>
           </Link>
           <Link to="/series" className="link">
             <span>Series</span>
